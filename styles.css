@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f7fb; color: #1f2937; }
+header, footer { text-align: center; padding: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 16px; }
+.card { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+button { margin-top: 8px; margin-right: 8px; padding: 8px 12px; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer; }
+textarea, select { width: 100%; margin-top: 8px; padding: 8px; border-radius: 8px; border: 1px solid #d1d5db; }
+#eyeTrackArea { position: relative; height: 80px; background: #eef2ff; border-radius: 8px; overflow: hidden; }
+#dot { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #ef4444; top: 31px; left: 0; }
