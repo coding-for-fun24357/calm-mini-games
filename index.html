@@ -3,60 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calm Mini Games</title>
+  <title>CalmOrbit — Anxiety Relief Mini Games</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Calm Mini Games</h1>
-    <p>Quick tools to reset your mind.</p>
-  </header>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>CalmOrbit</h1>
+      <p class="tag">Reset your mind in minutes.</p>
 
-  <main class="grid">
-    <section class="card">
-      <h2>Box Breathing</h2>
-      <p id="breathPhase">Press start</p>
-      <p id="breathCount">Cycle: 0</p>
-      <button id="startBreath">Start</button>
-      <button id="stopBreath">Stop</button>
-    </section>
+      <nav>
+        <button class="nav-btn active" data-view="home">Home</button>
+        <button class="nav-btn" data-view="breath">Box Breathing</button>
+        <button class="nav-btn" data-view="eye">Eye Reset</button>
+        <button class="nav-btn" data-view="ground">Grounding</button>
+        <button class="nav-btn" data-view="journal">Mood Journal</button>
+        <button class="nav-btn" data-view="uplift">Cheer-Up Lab</button>
+      </nav>
 
-    <section class="card">
-      <h2>Eye Reset</h2>
-      <p>Follow the dot for 30 seconds.</p>
-      <div id="eyeTrackArea"><div id="dot"></div></div>
-      <button id="startEye">Start Eye Reset</button>
-    </section>
+      <div class="mini-card">
+        <h3>Quick Calm</h3>
+        <p>60-second rescue</p>
+        <button id="panicBtn">Start Reset</button>
+      </div>
+    </aside>
 
-    <section class="card">
-      <h2>5-4-3-2-1 Grounding</h2>
-      <button id="nextGrounding">Next Prompt</button>
-      <p id="groundingPrompt">Press to begin.</p>
-    </section>
+    <main class="content">
+      <!-- HOME -->
+      <section id="home" class="view active">
+        <div class="hero">
+          <h2>Hi, I’m your calm companion 🌿</h2>
+          <p>
+            Pick one tool and begin. You don’t need to feel ready—you just need one small reset.
+          </p>
+        </div>
 
-    <section class="card">
-      <h2>Mood Journal</h2>
-      <select id="moodSelect">
-        <option>🙂 Okay</option>
-        <option>😟 Anxious</option>
-        <option>😞 Low</option>
-        <option>😌 Calm</option>
-      </select>
-      <textarea id="moodNote" placeholder="Write a quick note..."></textarea>
-      <button id="saveMood">Save Entry</button>
-      <ul id="moodList"></ul>
-    </section>
+        <div class="grid two">
+          <article class="card">
+            <h3>Today’s Check-In</h3>
+            <p id="todayMessage">You haven’t logged a mood yet.</p>
+            <button data-jump="journal">Log mood now</button>
+          </article>
 
-    <section class="card">
-      <h2>Cheer-Up Activity</h2>
-      <button id="newActivity">Give me one</button>
-      <p id="activityText">Press the button.</p>
-    </section>
-  </main>
+          <article class="card">
+            <h3>Usage Streak</h3>
+            <p><span id="streakCount">0</span> day(s)</p>
+            <small>Any interaction counts as a day used.</small>
+          </article>
+        </div>
+      </section>
 
-  <footer>
-    <small>This app supports stress relief and is not medical care. In the U.S., call/text 988 for crisis support.</small>
-  </footer>
+      <!-- BREATH -->
+      <section id="breath" class="view">
+        <h2>Box Breathing</h2>
+        <p>Inhale • Hold • Exhale • Hold (4 seconds each)</p>
+
+        <div class="breath-wrap">
+          <div id="breathSquare"></div>
+          <p id="breathPhase">Press Start</p>
+          <p id="breathCycle">Cycle: 0</p>
+          <div class="row">
+            <button id="startBreath">Start</button>
+            <button id="stopBreath" class="ghost">Stop</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- EYE -->
+      <section id="eye" class="view">
+        <h2>Eye Reset</h2>
+        <p>Follow the dot slowly with your eyes (head still).</p>
+        <div id="eyeTrackArea"><div id="dot"></div></div>
+        <p id="eyeTimer">Ready</p>
+        <button id="startEye">Start 30s Eye Reset</button>
+      </section>
+
+      <!-- GROUNDING -->
+      <section id="ground" class="view">
+        <h2>5-4-3-2-1 Grounding</h2>
+        <p>Return attention to your senses.</p>
+        <div class="card">
+          <h3 id="groundStep">Press “Next Prompt”</h3>
+          <button id="nextGrounding">Next Prompt</button>
+        </div>
+      </section>
+
+      <!-- JOURNAL -->
+      <section id="journal" class="view">
+        <h2>Mood Journal</h2>
+        <div class="grid two">
+          <article class="card">
+            <label>Mood</label>
+            <select id="moodSelect">
+              <option>😌 Calm</option>
+              <option>🙂 Okay</option>
+              <option>😟 Anxious</option>
+              <option>😞 Low</option>
+              <option>😤 Overwhelmed</option>
+            </select>
+
+            <label>What’s on your mind?</label>
+            <textarea id="moodNote" rows="4" placeholder="Write one honest sentence..."></textarea>
+            <button id="saveMood">Save Entry</button>
+          </article>
+
+          <article class="card">
+            <h3>Recent Entries</h3>
+            <ul id="moodList" class="list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- UPLIFT -->
+      <section id="uplift" class="view">
+        <h2>Cheer-Up Lab</h2>
+        <p>One small action to shift your state.</p>
+        <div class="card">
+          <h3 id="activityText">Click below for a personalized uplift activity.</h3>
+          <button id="newActivity">Give me one</button>
+        </div>
+      </section>
+
+      <footer>
+        <small>
+          CalmOrbit supports stress relief and is not medical care. In the U.S., call/text 988 for crisis support.
+        </small>
+      </footer>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
