@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calm Mini Games</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Calm Mini Games</h1>
+    <p>Quick tools to reset your mind.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Box Breathing</h2>
+      <p id="breathPhase">Press start</p>
+      <p id="breathCount">Cycle: 0</p>
+      <button id="startBreath">Start</button>
+      <button id="stopBreath">Stop</button>
+    </section>
+
+    <section class="card">
+      <h2>Eye Reset</h2>
+      <p>Follow the dot for 30 seconds.</p>
+      <div id="eyeTrackArea"><div id="dot"></div></div>
+      <button id="startEye">Start Eye Reset</button>
+    </section>
+
+    <section class="card">
+      <h2>5-4-3-2-1 Grounding</h2>
+      <button id="nextGrounding">Next Prompt</button>
+      <p id="groundingPrompt">Press to begin.</p>
+    </section>
+
+    <section class="card">
+      <h2>Mood Journal</h2>
+      <select id="moodSelect">
+        <option>🙂 Okay</option>
+        <option>😟 Anxious</option>
+        <option>😞 Low</option>
+        <option>😌 Calm</option>
+      </select>
+      <textarea id="moodNote" placeholder="Write a quick note..."></textarea>
+      <button id="saveMood">Save Entry</button>
+      <ul id="moodList"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Cheer-Up Activity</h2>
+      <button id="newActivity">Give me one</button>
+      <p id="activityText">Press the button.</p>
+    </section>
+  </main>
+
+  <footer>
+    <small>This app supports stress relief and is not medical care. In the U.S., call/text 988 for crisis support.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
